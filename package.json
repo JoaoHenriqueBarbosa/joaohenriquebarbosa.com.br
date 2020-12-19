@@ -8,11 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "date-fns": "^2.16.1",
     "gray-matter": "^4.0.2",
+    "lodash": "^4.17.20",
     "next": "10.0.3",
     "raw-loader": "^4.0.2",
     "react": "17.0.1",
+    "react-audio-player": "^0.14.0",
     "react-dom": "17.0.1",
-    "react-markdown": "^5.0.3"
+    "react-h5-audio-player": "^3.5.0",
+    "react-markdown": "^5.0.3",
+    "rss-to-json": "^1.1.2"
   }
 }

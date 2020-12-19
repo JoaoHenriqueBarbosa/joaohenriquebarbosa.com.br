@@ -3237,6 +3237,132 @@ h6 .anchor:focus svg {
 	}
 }
 
+.dark .rhap_container{
+	filter: invert(1);
+}
+
+.rhap_additional-controls {
+	display: none !important;
+}
+
+.podcast {
+	height: 450px;
+	overflow-y: scroll;
+	position: relative;
+}
+
+.podcast .episodio {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.podcast .player{
+	outline: none;
+	width: 100%;
+	position: sticky;
+	bottom: -1px;
+	z-index: 2;
+	display: flex;
+	box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.podcast .player .tocando{
+	background-color: #fff;
+	padding: 10px 15px;
+	display: flex;
+}
+
+.podcast .player .tocando .capa{
+	
+}
+
+.podcast .player .tocando .titulo{
+	margin-left: 10px;
+	width: 100px;
+	overflow: hidden;
+	font-size: 11pt;
+	font-weight: 600;
+	/* flex-grow: 2; */
+	
+}
+
+.dark .podcast .player button,
+.podcast .player button{
+	border: inherit;
+	color: #868686;
+	background: inherit;
+	text-decoration: none;
+	margin: 0 3px ;
+}
+
+.rhap_container {
+	box-shadow: none !important;
+}
+
+.dark .podcast .player button:hover,
+.podcast .player button:hover{
+	border: inherit;
+	color: inherit;
+	background: inherit;
+	text-decoration: none;
+}
+
+.podcast .episodio .metadata {
+	margin-left: 10px;
+	margin-bottom: 20px;
+	width: calc(100% - 150px);
+}
+
+.podcast .episodio .metadata .titulo {
+	margin-top: 5px;
+	margin-bottom: 0;
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+.podcast .episodio .metadata .data {
+	margin-top: 0;
+	margin-bottom: 15px;
+	font-weight: 500;
+	font-size: 10pt;
+}
+
+.podcast .episodio .metadata .descricao p {
+	font-size: 10pt;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.podcast .episodio .metadata .btn-leia-mais {
+	margin: 0;
+	font-size: 10pt;
+	padding: 3px;
+}
+
+.podcast .episodio .capa-holder {
+	position: relative;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.podcast .episodio .capa-holder .capa-play.active,
+.podcast .episodio .capa-holder:hover .capa-play {
+	display: flex;
+}
+
+.podcast .episodio .capa-holder .capa-play {
+	position: absolute;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	height: 103px;
+	width: 100px;
+	z-index: 1;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
 /* 
 pre.no-title {
 	margin: -34px 0 -22px !important;
