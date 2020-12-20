@@ -16,7 +16,7 @@ export default function Home({ title }) {
 }
 
 export async function getStaticProps() {
-  const siteData = await import(`../data/config.json`);
+  const siteData = await import(`../content/data/config.json`);
 
   return {
     props: {

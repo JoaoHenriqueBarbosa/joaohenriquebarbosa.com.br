@@ -38,8 +38,10 @@ const Podcast = ({ podcastData }) => {
       ))}
       <div className="player">
         <div className="tocando">
-          <Image className="capa" src={episodio.itunes_image} width={65} height={65} layout="fixed" />
-          <p className="titulo">{episodio.title}</p>
+          <Image className="capa" src={episodio.itunes_image} width={60} height={60} layout="fixed" />
+          <div className="titulo-holder">
+            <p title={episodio.title} className="titulo">{episodio.title}</p>
+          </div>
         </div>
         <AudioPlayer src={episodio.enclosures[0].url} />
       </div>

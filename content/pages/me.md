@@ -23,6 +23,10 @@ Eu resolvi criar este site para ser um lugar onde eu documento tudo o que eu apr
 
 ## Podcast
 
+Eu sempre adorei ouvir podcasts e esse ano eu inventei de fazer o meu com os meus amigos, é o [Jaguaras Podcast](https://anchor.fm/jaguaras-podcast)! Que você pode ouvir, mas só se você quiser 😊
+
+> bind-podcast
+
 ## Links
 
 Uma lista nada exaustiva.
@@ -47,9 +51,9 @@ Uma lista nada exaustiva.
 
 ## Atualmente usando
 
-- **Computador:** Dell Vostro
+- **Computador:** i5-9400F | 16 Gb RAM | GeForce 1660 ti
 - **Hospedagem:** [Hostagor](https://www.hostgator.com.br)
 - **Editor:** [Visual Studio Code](https://code.visualstudio.com/)
-- **Static Site Generator:** [Gatsby](https://gatsbyjs.org)
+- **Static Site Generator:** [Next.js](https://nextjs.org/)
 - **Syntax highlighting:** [PrismJS](http://prismjs.com/)
 - **Notas:** [Google Keep](https://keep.google.com/)

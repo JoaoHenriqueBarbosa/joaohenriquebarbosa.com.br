@@ -3237,16 +3237,51 @@ h6 .anchor:focus svg {
 	}
 }
 
+.listeningPlatforms {
+	display: flex;
+}
+
+.listeningPlatforms .wrapper {
+	width: 50px;
+	height: 28px;
+	position: relative;
+}
+
+.listeningPlatforms .wrapper .iconWrapper .text{
+	display: none;
+	position: absolute;
+	font-size: 8pt;
+	top: 35px;
+	padding: 0;
+	margin: 0;
+}
+
+.listeningPlatforms .wrapper .iconWrapper:hover .text{
+	display: block;
+}
+
 .dark .rhap_container{
 	filter: invert(1);
 }
 
-.rhap_additional-controls {
+/* .rhap_additional-controls {
+	display: none !important;
+	visibility: hidden;
+} */
+
+.rhap_repeat-button {
 	display: none !important;
 }
 
+@media only screen and (max-width: 800px) {
+	.podcast {
+		display: none;
+	}
+}
+
 .podcast {
-	height: 450px;
+	height: 500px;
+	margin-bottom: 15px;
 	overflow-y: scroll;
 	position: relative;
 }
@@ -3255,6 +3290,8 @@ h6 .anchor:focus svg {
 	display: flex;
 	align-items: flex-start;
 	width: 100%;
+	/* border-bottom: solid 1px #c3c3c3;
+	margin-bottom: 15px; */
 }
 
 .podcast .player{
@@ -3265,26 +3302,40 @@ h6 .anchor:focus svg {
 	z-index: 2;
 	display: flex;
 	box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+	padding-right: 15px;
+}
+
+.dark .podcast .player,
+.dark .podcast .player .tocando{
+	background-color: black;
 }
 
 .podcast .player .tocando{
 	background-color: #fff;
 	padding: 10px 15px;
 	display: flex;
+	align-items: center;
 }
-
+/* 
 .podcast .player .tocando .capa{
 	
+} */
+
+.podcast .player .tocando .titulo-holder{
+	height: 60px;
+	overflow: hidden;
 }
 
-.podcast .player .tocando .titulo{
+.podcast .player .tocando .titulo-holder .titulo{
+	margin: 0;
 	margin-left: 10px;
 	width: 100px;
-	overflow: hidden;
-	font-size: 11pt;
+	/* overflow: hidden; */
+	font-size: 10pt;
 	font-weight: 600;
-	/* flex-grow: 2; */
-	
+	/* flex-grow: 1; */
+	/* white-space: nowrap; */
+  text-overflow: ellipsis;
 }
 
 .dark .podcast .player button,
@@ -3357,7 +3408,7 @@ h6 .anchor:focus svg {
 	align-items: center;
 	justify-content: center;
 	top: 0;
-	height: 103px;
+	height: 100px;
 	width: 100px;
 	z-index: 1;
 	background-color: rgba(255, 255, 255, 0.5);

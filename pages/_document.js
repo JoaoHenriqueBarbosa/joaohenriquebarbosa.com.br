@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    const siteData = await import(`../data/config.json`);
+    const siteData = await import(`../content/data/config.json`);
 
     return { ...initialProps, ...siteData.default }
   }
