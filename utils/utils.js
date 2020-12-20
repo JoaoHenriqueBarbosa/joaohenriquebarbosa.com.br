@@ -1,4 +1,14 @@
 import React from "react";
+import { Prism } from "react-syntax-highlighter";
+import dracula from "../styles/dracula";
+
+const CodeBlock = ({ language, value }) => {
+  return (
+    <Prism showLineNumbers={true} language={language} style={dracula}>
+      {value}
+    </Prism>
+  );
+};
 
 export const flatten = (text, child) => {
   return typeof child === 'string'
@@ -22,5 +32,6 @@ const headingRenderer = (props) => {
 }
 
 export const renderers = {
-  heading: headingRenderer
+  heading: headingRenderer,
+  code: CodeBlock
 };

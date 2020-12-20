@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import { renderers } from '../utils/utils';
 
-const Post = ({ title, podcastData, content, data }) => {
+const Post = ({ title, content, data }) => {
   return (
     <Page
       siteTitle={title}

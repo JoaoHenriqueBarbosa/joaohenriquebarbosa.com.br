@@ -183,7 +183,7 @@ fetch('https://ghibliapi.herokuapp.com/films')
   });
 ```
 
-Usamos com êxito uma `GET`solicitação HTTP para recuperar (ou consumir) o *endpoint* da API, que consistia em dados no formato JSON. No entanto, ainda estamos presos no console - queremos exibir esses dados no front end do site, o que faremos modificando o DOM.
+Usamos com êxito uma `GET` solicitação HTTP para recuperar (ou consumir) o *endpoint* da API, que consistia em dados no formato JSON. No entanto, ainda estamos presos no console - queremos exibir esses dados no front end do site, o que faremos modificando o DOM.
 
 ## Exibindo os dados
 
@@ -307,7 +307,7 @@ app.appendChild(errorMessage)
 
 E acabamos! Aqui está o código final do **scripts.js** .
 
-scripts.js
+<div class="filename">scripts.js</div>
 
 ```js
 const app = document.getElementById('root');
