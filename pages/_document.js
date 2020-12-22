@@ -13,7 +13,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="shortcut icon" type="image/png" href="/images/rocket.png" />
-          <meta name="description" content={this.props.description} />
+          {/* <meta name="description" content={this.props.description} />
           <meta name="image" content="/images/rocket.png" />
           <meta property="og:url" content="https://www.joaohenriquebarbosa.com.br" />
           <meta property="og:title" content={this.props.title} />
@@ -22,7 +22,7 @@ class MyDocument extends Document {
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content={this.props.title} />
           <meta name="twitter:description" content={this.props.description} />
-          <meta name="twitter:image" content="/images/rocket.png" />
+          <meta name="twitter:image" content="/images/rocket.png" /> */}
         </Head>
         <body className="theme">
           <Main />

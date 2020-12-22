@@ -1,8 +1,10 @@
+import Image from "next/image";
 import React from "react";
 import { Prism } from "react-syntax-highlighter";
 import dracula from "../styles/dracula";
+import queryString from "query-string";
 
-const CodeBlock = ({ language, value }) => {
+const codeRenderer = ({ language, value }) => {
   return (
     <Prism showLineNumbers={true} language={language} style={dracula}>
       {value}
@@ -31,7 +33,31 @@ const headingRenderer = (props) => {
   return React.createElement('h' + props.level, { id: slug, style: { position: 'relative' } }, content);
 }
 
+const imageRenderer = (props) => {
+
+  const { src } = props;
+  let dimentions = {};
+
+  if ((src.includes("height") || src.includes("width")) && src.includes("?")) {
+    dimentions = queryString.parse(src.split("?")[1]);
+  } else {
+    const { children, node, ...rest } = props;
+    return <img {...rest} />
+  }
+
+  return <Image {...dimentions} src={src} layout="responsive" />;
+}
+
+const paragraphRenderer = ({ children }) => {
+  const hasImage = !!children.find(
+    (child) => typeof child === 'object' && child.key && !!child.key.match(/image/g)
+  )
+  return hasImage ? children : <p>{children}</p>
+}
+
 export const renderers = {
   heading: headingRenderer,
-  code: CodeBlock
+  image: imageRenderer,
+  code: codeRenderer,
+  paragraph: paragraphRenderer
 };

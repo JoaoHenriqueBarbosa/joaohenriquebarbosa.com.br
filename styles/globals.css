@@ -924,8 +924,12 @@ a:hover {
 
 .page img,
 .post img {
-	max-width: 100%;
-	height: auto
+	max-width: 100% !important;
+	height: auto !important;
+}
+
+.post img {
+	padding-bottom: 20px !important;
 }
 
 mark {
@@ -1619,7 +1623,8 @@ button.dark-switcher:focus {
 }
 
 .single-header h1 {
-	margin: .5rem 0
+	margin: .5rem 0;
+	font-weight: 600;
 }
 
 .single-header .post-meta {

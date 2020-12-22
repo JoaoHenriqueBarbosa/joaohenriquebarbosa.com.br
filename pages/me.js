@@ -6,8 +6,9 @@ import PodcastPlataforms from '../components/PodcastPlataforms';
 import ReactMarkdown from "react-markdown";
 import { renderers } from "../utils/utils";
 import feed from "rss-to-json";
+import SEO from '../components/SEO';
 
-const Me = ({ title, podcastData, content, data }) => {
+const Me = ({ title, podcastData, siteUrl, twitter, content, data }) => {
 
   const meRenderers = {
     ...renderers,
@@ -28,8 +29,17 @@ const Me = ({ title, podcastData, content, data }) => {
   return (
     <Page
       siteTitle={title}
-      pageTitle={data.title}
     >
+      <SEO
+        title={data.title}
+        siteTitle={title}
+        description={content.slice(0, 150) + "..."}
+        image="/images/joaofull.png"
+        pathname={siteUrl}
+        siteLanguage="pt-BR"
+        siteLocale="BR"
+        twitterUsername={twitter}
+      />
       <article className="container">
         <header className="page-header">
           <h1>{data.title}</h1>
@@ -58,6 +68,8 @@ export async function getStaticProps() {
       ...data,
       podcastData,
       title: siteData.default.title,
+      siteUrl: siteData.default.siteUrl,
+      twitter: siteData.default.twitter,
     },
   };
 }

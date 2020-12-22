@@ -1,8 +1,10 @@
 {
   "title": "João Henrique Barbosa",
+  "author": "João Henrique Barbosa",
   "description": "Sou João Henrique Barbosa, um desenvolvedor de software full-stack com foco em JavaScript moderno.",
+  "siteUrl": "https://joaohenriquebarbosa.com.br",
   "gitHub": "https://github.com/JoaoHenriqueBarbosa",
-  "twitter": "https://twitter.com/codingjon",
+  "twitter": "codingjon",
   "linkedIn": "https://www.linkedin.com/in/jo%C3%A3o-henrique-barbosa-ba1322124",
   "email": "jhenrique@aktienow.com"
 }

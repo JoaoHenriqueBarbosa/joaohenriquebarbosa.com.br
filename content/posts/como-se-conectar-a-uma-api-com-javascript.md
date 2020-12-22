@@ -1,7 +1,7 @@
 ---
 date: 2019-05-06
 title: 'Como se conectar a uma API com JavaScript'
-thumbnail: '../thumbnails/js.png'
+thumbnail: '/images/thumbnails/js.png'
 categories:
   - JavaScript
   - Popular
@@ -36,7 +36,7 @@ Vamos escrever a partir [deste aplicativo Web simples](https://joaohenriquebarbo
 
 No final ficará assim:
 
-![](../images/print-final-ghibli.png)
+![](/images/posts/print-final-ghibli.png?width=1262&height=764)
 
 Vamos começar.
 
@@ -191,7 +191,7 @@ Para exibir informações no front end de um site, trabalharemos com o DOM, que 
 
 No final, nossa página consistirá em uma imagem de logotipo seguida por um contêiner com vários elementos de cartão - um para cada filme. Cada cartão terá um título e um parágrafo, que contém o título e a descrição de cada filme. Aqui está o que parece, com apenas CSS essencial carregado:
 
-![](../images/print-medio-ghibli.png)
+![](/images/posts/print-medio-ghibli.png?width=1264&height=756)
 
 Se você se lembra, nosso **index.html** só tem um div raiz - `<div id="root">` agora. Nós vamos acessá-lo com `getElementById()`. Podemos remover brevemente todo o código anterior que escrevemos, não se preocupe, adicionaremos novamente em breve.
 
@@ -350,7 +350,7 @@ fetch('https://ghibliapi.herokuapp.com/films')
 
 E com os CSS completos, aqui está o resultado final do produto:
 
-![](../images/print-final-ghibli.png)
+![](/images/posts/print-final-ghibli.png?width=1262&height=764)
 
 
 
