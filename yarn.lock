@@ -518,6 +518,11 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+await-foreach@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/await-foreach/-/await-foreach-0.0.2.tgz#5404f94116c2c21ebe991a57040e6d430582beb6"
+  integrity sha512-GtSU7yNJMazIxdlPkNSY19XW0tpDxDWhZhzHzhrp/zVtlmQwmAr3hHehBexz8VDPyjWJyUNUDlr9B7g/bg8qTA==
+
 axios@^0.21.0:
   version "0.21.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"

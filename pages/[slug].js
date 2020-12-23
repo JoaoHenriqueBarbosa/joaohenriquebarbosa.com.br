@@ -12,22 +12,22 @@ import { capitalize } from 'lodash';
 import Image from 'next/image';
 import SEO from '../components/SEO';
 
-const Post = ({ title, slug, gitHub, siteUrl, twitter, author, content, data }) => {
+const Post = ({ config, slug, content, data }) => {
   return (
     <Page
-      siteTitle={title}
+      config={config}
     >
       <SEO
         title={data.title}
-        siteTitle={title}
+        siteTitle={config.title}
         description={content.slice(0, 150) + "..."}
         image={data.thumbnail}
-        pathname={siteUrl}
+        pathname={config.siteUrl}
         siteLanguage="pt-BR"
         siteLocale="BR"
-        twitterUsername={twitter}
-        pathname={path.join(siteUrl, slug)}
-        author={author}
+        twitterUsername={config.twitter}
+        pathname={path.join(config.siteUrl, slug)}
+        author={config.author}
         article={true}
         publishedDate={data.date}
         modifiedDate={data.date}
@@ -45,13 +45,13 @@ const Post = ({ title, slug, gitHub, siteUrl, twitter, author, content, data }) 
                 <a
                   style={{ borderBottom: "none" }}
                   className="twitter-link"
-                  href={`http://twitter.com/share?text=${encodeURI(`${data.title} ${siteUrl}/${slug} via @${twitter}`)}`}
+                  href={`http://twitter.com/share?text=${encodeURI(`${data.title} ${config.siteUrl}/${slug} via @${config.twitter}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Compartilhar
                 </a> /
-                <a className="github-link" style={{ borderBottom: "none" }} href={`${gitHub}/joaohenriquebarbosa.com.br/blob/master/content/posts/${slug}.md`} target="_blank" rel="noopener noreferrer">
+                <a className="github-link" style={{ borderBottom: "none" }} href={`${config.repo}/blob/master/content/posts/${slug}.md`} target="_blank" rel="noopener noreferrer">
                   Edite ✏️
                 </a>
               </div>
@@ -81,22 +81,18 @@ export async function getStaticProps(context) {
 
   const siteData = await import(`../content/data/config.json`);
   const content = await import(`../content/posts/${slug}.md`);
-  const data = matter(content.default);
-  delete data.orig;
+  const postData = matter(content.default);
+  delete postData.orig;
 
-  if (data.data.date) {
-    data.data.date = data.data.date.toString();
+  if (postData.data.date) {
+    postData.data.date = postData.data.date.toString();
   }
 
   return {
     props: {
-      ...data,
+      ...postData,
       slug,
-      title: siteData.default.title,
-      gitHub: siteData.default.gitHub,
-      siteUrl: siteData.default.siteUrl,
-      twitter: siteData.default.twitter,
-      author: siteData.default.author,
+      config: siteData.default
     }
   };
 };

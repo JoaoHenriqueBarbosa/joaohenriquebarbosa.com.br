@@ -8,7 +8,7 @@ import { renderers } from "../utils/utils";
 import feed from "rss-to-json";
 import SEO from '../components/SEO';
 
-const Me = ({ title, podcastData, siteUrl, twitter, content, data }) => {
+const Me = ({ config, podcastData, content, data }) => {
 
   const meRenderers = {
     ...renderers,
@@ -28,17 +28,17 @@ const Me = ({ title, podcastData, siteUrl, twitter, content, data }) => {
 
   return (
     <Page
-      siteTitle={title}
+      config={config}
     >
       <SEO
         title={data.title}
-        siteTitle={title}
+        siteTitle={config.title}
         description={content.slice(0, 150) + "..."}
         image="/images/joaofull.png"
-        pathname={siteUrl}
+        pathname={config.siteUrl}
         siteLanguage="pt-BR"
         siteLocale="BR"
-        twitterUsername={twitter}
+        twitterUsername={config.twitter}
       />
       <article className="container">
         <header className="page-header">
@@ -58,18 +58,16 @@ export async function getStaticProps() {
 
   const siteData = await import(`../content/data/config.json`);
   const content = await import(`../content/pages/me.md`);
-  const data = matter(content.default);
-  delete data.orig;
+  const postData = matter(content.default);
+  delete postData.orig;
 
   const podcastData = await feed.load('https://anchor.fm/s/25239504/podcast/rss');
 
   return {
     props: {
-      ...data,
+      ...postData,
       podcastData,
-      title: siteData.default.title,
-      siteUrl: siteData.default.siteUrl,
-      twitter: siteData.default.twitter,
+      config: siteData.default
     },
   };
 }
