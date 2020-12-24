@@ -5,7 +5,7 @@ import path from "path";
 import fs from "fs";
 import awaitForEach from "await-foreach";
 import matter from 'gray-matter';
-import { toggleItem } from '../utils/utils';
+import { slash, toggleItem } from '../utils/utils';
 import queryString from "query-string";
 import { differenceInDays, format, isSameMonth } from 'date-fns';
 import { useRouter } from 'next/router';
@@ -115,7 +115,7 @@ const Blog = ({ config, categories, posts, minToPopular, daysToRecent }) => {
               post.title.includes(searchText) ||
               post.tags.join(" ").includes(searchText)
             )).map(post => (
-              <Link key={"post-" + post.title} href={post.slug}>
+              <Link key={"post-" + post.title} href={slash(post.slug)}>
                 <a>
                   <div className="each">
                     <div className="next-image-wrapper" style={{ "position": "relative", "overflow": "hidden", "display": "inline-block", "width": "150px", "height": "150px" }}>

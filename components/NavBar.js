@@ -75,9 +75,9 @@ const NavBar = ({ title }) => {
             <NavLink href="/contact" >
               Contato
             </NavLink>
-            <a href="https://github.com/JoaoHenriqueBarbosa" target="_blank" rel="noopener noreferrer">
+            {/* <a href="https://github.com/JoaoHenriqueBarbosa" target="_blank" rel="noopener noreferrer">
               GitHub
-            </a>
+            </a> */}
             <div className="cta">
               <button onClick={toggleDarkTheme} className="dark-switcher cta">
                 <img ref={imgToggle} src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTI4IDEyODsiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPg0KICA8cGF0aCBkPSJNMTA1Ljg3LDE0Ljk5Yy0zLjc0LTMuMzktNy45MS02LjM4LTEyLjQyLTguODljLTAuODctMC40OS0yLTAuMzUtMi43MSwwLjMzIGMtMC43MSwwLjY4LTAuODMsMS43My0wLjI5LDIuNTNjMTUuNjMsMjIuOTMsMTIuMjksNTIuNTItOC4xMSw3MS45N2MtMTEuOSwxMS4zNS0yNy44NSwxNy42LTQ0LjkxLDE3LjYgYy0xMS4zOSwwLTIyLjU0LTIuODYtMzIuMjQtOC4yN2MtMC44Ny0wLjQ5LTItMC4zNi0yLjcxLDAuMzNjLTAuNzEsMC42OC0wLjgzLDEuNzItMC4yOCwyLjUzYzIuODEsNC4xMiw2LjEyLDcuOTMsOS44NiwxMS4zMiBjMTIuNjEsMTEuNDUsMjkuMjcsMTcuNzYsNDYuOSwxNy43NmMxOC4yNywwLDM1LjM0LTYuNyw0OC4wOS0xOC44NmMxMi41My0xMS45NCwxOS4zMS0yNy43MSwxOS4wOS00NC40IEMxMjUuOTIsNDIuMjUsMTE4LjcyLDI2LjY0LDEwNS44NywxNC45OXoiIHN0eWxlPSJmaWxsOiNGQ0MyMUI7Ii8+DQo8L3N2Zz4=" className="theme-icon" />
