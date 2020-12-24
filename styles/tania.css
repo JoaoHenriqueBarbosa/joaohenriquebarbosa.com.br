@@ -446,7 +446,7 @@ a:hover {
 a.image-link {
     border-width: 0;
 }
-a.gatsby-resp-image-link {
+a.next-resp-image-link {
     border-bottom: none !important;
 }
 a code[class*="language-"] {
@@ -861,14 +861,14 @@ header u {
 .post-thumbnail {
     display: block !important;
 }
-.post-thumbnail.gatsby-image-wrapper {
+.post-thumbnail.next-image-wrapper {
     min-width: 75px;
     height: 75px !important;
     width: 75px !important;
     margin-bottom: 0.5rem;
 }
 @media screen and (min-width: 800px) {
-    .post-thumbnail.gatsby-image-wrapper {
+    .post-thumbnail.next-image-wrapper {
         min-width: 100px;
         height: 100px !important;
         width: 100px !important;
@@ -1140,7 +1140,7 @@ kbd {
     background: var(--light-background);
     transform: translate3d(0, -1px, 0);
 }
-.guide-thumbnails .gatsby-image-wrapper,
+.guide-thumbnails .next-image-wrapper,
 .guide-thumbnails img {
     max-width: 30px;
     max-height: 30px;
@@ -1159,14 +1159,14 @@ kbd {
         font-size: 0.85rem;
         font-weight: 400;
     }
-    .guide-thumbnails .gatsby-image-wrapper,
+    .guide-thumbnails .next-image-wrapper,
     .guide-thumbnails img {
         max-width: 30px;
         max-height: 30px;
         margin-bottom: 0.25rem;
     }
 }
-.guides .gatsby-image-wrapper {
+.guides .next-image-wrapper {
     height: 50px !important;
     width: 50px !important;
     min-width: 50px;
@@ -1213,7 +1213,7 @@ kbd {
     .guides.front-page .guide {
         border-bottom: none;
     }
-    .guides .gatsby-image-wrapper {
+    .guides .next-image-wrapper {
         height: 100px !important;
         width: 100px !important;
         min-width: 100px;
@@ -1359,7 +1359,7 @@ pre.language-terminal:after {
     top: 6px;
     right: 0.5rem;
 }
-.gatsby-highlight-code-line {
+.next-highlight-code-line {
     background-color: #191919;
     display: block;
     margin-right: -1rem;

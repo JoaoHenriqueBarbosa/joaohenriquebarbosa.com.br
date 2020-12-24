@@ -5,14 +5,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export"
   },
   "dependencies": {
     "await-foreach": "^0.0.2",
     "date-fns": "^2.16.1",
     "gray-matter": "^4.0.2",
     "lodash": "^4.17.20",
+    "mongodb": "^3.6.3",
     "next": "10.0.3",
+    "node-fetch": "^2.6.1",
     "query-string": "^6.13.7",
     "raw-loader": "^4.0.2",
     "react": "17.0.1",
@@ -22,6 +25,8 @@
     "react-markdown": "^5.0.3",
     "react-syntax-highlighter": "^15.4.3",
     "remark-gfm": "^1.0.0",
-    "rss-to-json": "^1.1.2"
+    "request": "^2.88.2",
+    "rss-to-json": "^1.1.2",
+    "swr": "^0.3.11"
   }
 }

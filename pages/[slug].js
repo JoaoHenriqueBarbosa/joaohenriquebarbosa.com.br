@@ -1,5 +1,5 @@
 import matter from 'gray-matter';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Page from '../components/Page';
 import path from "path";
 import fs from "fs";
@@ -13,6 +13,19 @@ import Image from 'next/image';
 import SEO from '../components/SEO';
 
 const Post = ({ config, slug, content, data }) => {
+
+  const [views, setViews] = useState("");
+
+  useEffect(() => {
+    fetch("/api/page-views", {
+      method: "POST",
+      body: JSON.stringify({ slug }),
+      headers: { "Content-type": "application/json;charset=UTF-8" }
+    })
+      .then((resp) => resp.json())
+      .then((resp) => setViews(resp.views));
+  }, []);
+
   return (
     <Page
       config={config}
@@ -35,13 +48,17 @@ const Post = ({ config, slug, content, data }) => {
       <div className="page">
         <article className="single container">
           <header className="single-header">
-            <div className="gatsby-image-wrapper" style={{ position: "relative", overflow: "hidden", display: "inline-block", width: 150, height: 150 }}>
+            <div className="next-image-wrapper" style={{ position: "relative", overflow: "hidden", display: "inline-block", width: 150, height: 150 }}>
               <Image width="150" height="150" layout="responsive" src={data.thumbnail} />
             </div>
             <div className="flex">
               <h1>{data.title}</h1>
               <div className="post-meta">
-                <time className="date">{capitalize(format(new Date(data.date), "EEEE, dd 'de' MMMM 'de' yyyy", { locale: pt }))}</time>/
+                <time className="date">{capitalize(format(new Date(data.date.split('-')), "EEEE, dd 'de' MMMM 'de' yyyy", { locale: pt }))}</time>/
+                {/* <div className="views-wrapper">
+                  <img src="/images/icons/view.svg" height="12px" width="12px" alt="views icon" /> {views} /
+                </div> */}
+                {views && ` 👁️ ${views} /`}
                 <a
                   style={{ borderBottom: "none" }}
                   className="twitter-link"
@@ -84,16 +101,16 @@ export async function getStaticProps(context) {
   const postData = matter(content.default);
   delete postData.orig;
 
-  if (postData.data.date) {
-    postData.data.date = postData.data.date.toString();
-  }
+  // if (postData.data.date) {
+  //   postData.data.date = postData.data.date.toString();
+  // }
 
   return {
     props: {
       ...postData,
       slug,
       config: siteData.default
-    }
+    },
   };
 };
 
@@ -108,6 +125,8 @@ export async function getStaticPaths() {
 
   const paths = [];
 
+  //usar map
+
   files.forEach((file) => {
     if (file.endsWith(".md")) {
       paths.push({
@@ -118,6 +137,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 }

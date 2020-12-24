@@ -1,5 +1,5 @@
 ---
-date: 2019-05-06
+date: "2019-05-06"
 title: 'Como se conectar a uma API com JavaScript'
 thumbnail: '/images/thumbnails/js.png'
 categories:

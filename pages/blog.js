@@ -7,16 +7,20 @@ import awaitForEach from "await-foreach";
 import matter from 'gray-matter';
 import { toggleItem } from '../utils/utils';
 import queryString from "query-string";
-import { format } from 'date-fns';
+import { differenceInDays, format, isSameMonth } from 'date-fns';
+import { useRouter } from 'next/router';
 import { pt } from 'date-fns/locale';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Blog = ({ config, categories, posts }) => {
+const Blog = ({ config, categories, posts, minToPopular, daysToRecent }) => {
+
+  const router = useRouter();
 
   const [filterCategories, setFilterCategories] = useState([]);
   const [filteredPosts, setfilteredPosts] = useState(posts);
   const [searchText, setSearchText] = useState("");
+  const [views, setViews] = useState([]);
 
   useEffect(() => {
     const params = queryString.parse(window.location.search);
@@ -24,13 +28,17 @@ const Blog = ({ config, categories, posts }) => {
     if (params.search) {
       setSearchText(params.search);
     }
+
+    fetch("/api/page-popular")
+      .then((resp) => resp.json())
+      .then((resp) => setViews(resp));
   }, []);
 
   useEffect(() => {
     if (searchText !== "") {
-      window.history.replaceState(null, null, `?search=${searchText}`);
+      router.replace(`?search=${searchText}`, undefined, { shallow: true });
     } else {
-      window.history.replaceState(null, null, `/blog`);
+      router.replace(`/blog`, undefined, { shallow: true });
     }
   }, [searchText]);
 
@@ -48,6 +56,17 @@ const Blog = ({ config, categories, posts }) => {
     } else {
       setfilteredPosts(posts);
     }
+  }
+
+  const getPopularBadge = (post) => {
+    const v = views.find(v => v.slug === post.slug);
+
+    if (!(differenceInDays(new Date(), new Date(post.date.split('-'))) < daysToRecent) && v) {
+      if (v.total > minToPopular) {
+        return <div className="alert"><div className="popular"><div>Popular</div></div></div>;
+      }
+    }
+
   }
 
   return (
@@ -98,8 +117,8 @@ const Blog = ({ config, categories, posts }) => {
             )).map(post => (
               <Link key={"post-" + post.title} href={post.slug}>
                 <a>
-                  <div class="each">
-                    <div class="gatsby-image-wrapper" style={{ "position": "relative", "overflow": "hidden", "display": "inline-block", "width": "150px", "height": "150px" }}>
+                  <div className="each">
+                    <div className="next-image-wrapper" style={{ "position": "relative", "overflow": "hidden", "display": "inline-block", "width": "150px", "height": "150px" }}>
                       <Image
                         src={post.thumbnail}
                         width="50px"
@@ -107,11 +126,16 @@ const Blog = ({ config, categories, posts }) => {
                         layout="responsive"
                       />
                     </div>
-                    <div class="each-list-item">
+                    <div className="each-list-item">
                       <h2>{post.title}</h2>
-                      <time class="excerpt">{format(new Date(post.date), "dd 'de' MMMM 'de' yyyy", { locale: pt })}</time>
+                      <time className="excerpt">{format(new Date(post.date.split('-')), "dd 'de' MMMM 'de' yyyy", { locale: pt })}</time>
                     </div>
-                    {/* <div class="alert"><div class="new">New!</div></div> */}
+                    {
+                      differenceInDays(new Date(), new Date(post.date.split('-'))) < daysToRecent && (
+                        <div className="alert"><div className="new"><div>Novo!</div></div></div>
+                      )
+                    }
+                    {getPopularBadge(post)}
                   </div>
                 </a>
               </Link>
@@ -134,9 +158,8 @@ export async function getStaticProps() {
   const files = await fsPromises.readdir(directoryPath);
 
   let categories = [];
-  const posts = [];
 
-  await awaitForEach(files, async (file) => {
+  const posts = await Promise.all(files.map(async (file) => {
     const content = await import(`../content/posts/${file}`);
     const postData = matter(content.default);
 
@@ -144,18 +167,13 @@ export async function getStaticProps() {
       categories = categories.filter(f => f !== cat).concat([cat]);
     });
 
-    if (postData.data.date) {
-      postData.data.date = postData.data.date.toString();
-    }
-
     postData.data.content = postData.content;
 
-    posts.push({
+    return {
       slug: file.substr(0, file.length - 3),
       ...postData.data
-    });
-
-  });
+    }
+  }));
 
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -163,7 +181,9 @@ export async function getStaticProps() {
     props: {
       config: siteData.default,
       categories,
-      posts
+      posts,
+      minToPopular: process.env.MIN_TO_POPULAR || 30,
+      daysToRecent: process.env.DAYS_TO_RECENT || 30
     },
   };
 }

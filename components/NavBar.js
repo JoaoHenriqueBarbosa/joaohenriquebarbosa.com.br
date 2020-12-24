@@ -32,10 +32,12 @@ const NavBar = ({ title }) => {
   }, []);
 
   const collapseNav = () => {
-    if (window.scrollY >= 15) {
-      nav.current.classList.add('scroll');
-    } else {
-      nav.current.classList.remove('scroll');
+    if (nav.current) {
+      if (window.scrollY >= 15) {
+        nav.current.classList.add('scroll');
+      } else {
+        nav.current.classList.remove('scroll');
+      }
     }
   }
 

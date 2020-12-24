@@ -1,10 +1,10 @@
 ---
-date: 2020-12-06
+date: "2020-12-06"
 title: 'Utilizando Markdown'
 thumbnail: '/images/thumbnails/md.png'
 categories:
   - Markdown
-  - New
+  - Popular
 tags:
   - markdown
   - blog

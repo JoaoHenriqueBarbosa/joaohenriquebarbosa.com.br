@@ -1,10 +1,9 @@
 ---
-date: 2016-12-06
+date: "2016-12-06"
 title: 'Outra Publicação'
 thumbnail: '/images/thumbnails/md.png'
 categories:
   - Markdown
-  - New
 tags:
   - markdown
   - blog

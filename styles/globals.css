@@ -901,22 +901,22 @@ a:hover {
 	color: #2161f2
 }
 
-.page a:not(.button):not(.anchor):not(.gatsby-resp-image-link),
-.post a:not(.button):not(.anchor):not(.gatsby-resp-image-link) {
+.page a:not(.button):not(.anchor):not(.next-resp-image-link),
+.post a:not(.button):not(.anchor):not(.next-resp-image-link) {
 	border-bottom: 2px solid #e2eafd
 }
 
-.page a:not(.button):not(.anchor):not(.gatsby-resp-image-link):hover,
-.post a:not(.button):not(.anchor):not(.gatsby-resp-image-link):hover {
+.page a:not(.button):not(.anchor):not(.next-resp-image-link):hover,
+.post a:not(.button):not(.anchor):not(.next-resp-image-link):hover {
 	color: #2161f2;
 	background: #f0f4fe;
 	border-bottom: 2px solid #2161f2
 }
 
-.page a:not(.button):not(.anchor):not(.gatsby-resp-image-link):active,
-.page a:not(.button):not(.anchor):not(.gatsby-resp-image-link):focus,
-.post a:not(.button):not(.anchor):not(.gatsby-resp-image-link):active,
-.post a:not(.button):not(.anchor):not(.gatsby-resp-image-link):focus {
+.page a:not(.button):not(.anchor):not(.next-resp-image-link):active,
+.page a:not(.button):not(.anchor):not(.next-resp-image-link):focus,
+.post a:not(.button):not(.anchor):not(.next-resp-image-link):active,
+.post a:not(.button):not(.anchor):not(.next-resp-image-link):focus {
 	color: #2161f2;
 	background: #f0f4fe;
 	border-bottom: 2px dashed #2161f2
@@ -1596,13 +1596,13 @@ button.dark-switcher:focus {
 	}
 }
 
-.single .gatsby-image-wrapper {
+.single .next-image-wrapper {
 	height: 50px!important;
 	width: 50px!important
 }
 
 @media (min-width:850px) {
-	.single .gatsby-image-wrapper {
+	.single .next-image-wrapper {
 		height: 150px!important;
 		width: 150px!important
 	}
@@ -1679,7 +1679,7 @@ button.dark-switcher:focus {
 	padding: 0
 }
 
-.posts .gatsby-image-wrapper {
+.posts .next-image-wrapper {
 	margin-top: 0;
 	height: 40px!important;
 	width: 40px!important
@@ -1701,7 +1701,7 @@ button.dark-switcher:focus {
 	background: #fff
 }
 
-.posts.simple .gatsby-image-wrapper {
+.posts.simple .next-image-wrapper {
 	margin-top: 0;
 	height: 30px!important;
 	width: 30px!important
@@ -1748,7 +1748,7 @@ button.dark-switcher:focus {
 		line-height: 1.3;
 		margin: 0 0 .25rem
 	}
-	.posts a .each .gatsby-image-wrapper {
+	.posts a .each .next-image-wrapper {
 		margin-top: 0;
 		height: 50px!important;
 		width: 50px!important
@@ -1775,7 +1775,7 @@ button.dark-switcher:focus {
 	.posts.simple a .each h2 {
 		margin: 0
 	}
-	.posts.simple a .each .gatsby-image-wrapper {
+	.posts.simple a .each .next-image-wrapper {
 		height: 30px!important;
 		width: 30px!important
 	}
@@ -1827,6 +1827,10 @@ h2.publication-company img {
 	border-radius: 4px;
 	padding: .5rem 1rem;
 	text-align: center
+}
+
+input.error {
+	border-color: red !important;
 }
 
 @media (min-width:850px) {
@@ -2619,22 +2623,22 @@ pre[class*=language-]::selection {
 	border-bottom: 2px dashed #81a5f8
 }
 
-.dark .page a:not(.button):not(.anchor):not(.gatsby-resp-image-link),
-.dark .post a:not(.button):not(.anchor):not(.gatsby-resp-image-link) {
+.dark .page a:not(.button):not(.anchor):not(.next-resp-image-link),
+.dark .post a:not(.button):not(.anchor):not(.next-resp-image-link) {
 	border-bottom: 2px solid transparent
 }
 
-.dark .page a:not(.button):not(.anchor):not(.gatsby-resp-image-link):hover,
-.dark .post a:not(.button):not(.anchor):not(.gatsby-resp-image-link):hover {
+.dark .page a:not(.button):not(.anchor):not(.next-resp-image-link):hover,
+.dark .post a:not(.button):not(.anchor):not(.next-resp-image-link):hover {
 	color: #5183f5;
 	background: transparent;
 	border-bottom: 2px solid #81a5f8
 }
 
-.dark .page a:not(.button):not(.anchor):not(.gatsby-resp-image-link):active,
-.dark .page a:not(.button):not(.anchor):not(.gatsby-resp-image-link):focus,
-.dark .post a:not(.button):not(.anchor):not(.gatsby-resp-image-link):active,
-.dark .post a:not(.button):not(.anchor):not(.gatsby-resp-image-link):focus {
+.dark .page a:not(.button):not(.anchor):not(.next-resp-image-link):active,
+.dark .page a:not(.button):not(.anchor):not(.next-resp-image-link):focus,
+.dark .post a:not(.button):not(.anchor):not(.next-resp-image-link):active,
+.dark .post a:not(.button):not(.anchor):not(.next-resp-image-link):focus {
 	background: transparent;
 	border-bottom: 2px dashed #81a5f8
 }
@@ -3672,4 +3676,64 @@ pre[class*='language-']::selection, pre[class*='language-']::selection, code[cla
 
 .linenumber {
 	width: 50px;
+}
+
+.greetings-codeblock {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgb(40, 42, 54);
+	padding: 40px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.greetings-codeblock .text,
+.greetings-codeblock .text h1 {
+	color: rgb(248, 248, 242);
+	background: none;
+	text-shadow: rgba(0, 0, 0, 0.3) 0px 1px;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+	text-align: left;
+	word-spacing: normal;
+	line-height: 1.5;
+	tab-size: 4;
+	hyphens: none;
+}
+
+.greetings-codeblock p {
+	margin: 0;
+}
+
+.greetings-codeblock .text .pink {
+	color: rgb(255, 121, 198) !important;
+}
+
+.greetings-codeblock .text .green {
+	color: rgb(80, 250, 123) !important;
+}
+
+.greetings-codeblock .text .yellow {
+	color: rgb(241, 250, 140) !important;
+}
+
+.greetings-codeblock .text .blue {
+	color: rgb(139, 233, 253) !important;
+}
+
+@media (max-width:600px) {
+
+	.greetings-codeblock {
+		padding: 20px;
+	}
+
+	.greetings-codeblock .image {
+		display: none;
+	}
+}
+
+.greetings-codeblock .image {
+	border-radius: 50%;
+	margin: 0;
+	margin-right: 30px;
 }
