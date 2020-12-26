@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import path from "path";
 
 export const Twitter = ({
   type = 'summary_large_image',
   username,
   title,
   desc,
+  baseUrl,
   image,
 }) => (
   <Head>
@@ -14,7 +16,7 @@ export const Twitter = ({
     <meta name="twitter:card" content={type} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={desc} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={path.join(baseUrl, image)} />
     <meta name="twitter:image:alt" content={desc} />
   </Head>
 )

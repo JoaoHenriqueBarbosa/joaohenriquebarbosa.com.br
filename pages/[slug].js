@@ -35,11 +35,11 @@ const Post = ({ config, slug, content, data }) => {
         siteTitle={config.title}
         description={content.slice(0, 150) + "..."}
         image={data.thumbnail}
-        pathname={config.siteUrl}
         siteLanguage="pt-BR"
         siteLocale="BR"
         twitterUsername={config.twitter}
         pathname={path.join(config.siteUrl, slug)}
+        baseUrl={config.siteUrl}
         author={config.author}
         article={true}
         publishedDate={data.date}

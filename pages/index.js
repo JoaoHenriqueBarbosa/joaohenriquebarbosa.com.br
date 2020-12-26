@@ -40,6 +40,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
         description={config.description}
         image="/images/rocket.png"
         pathname={config.siteUrl}
+        baseUrl={config.siteUrl}
         siteLanguage="pt-BR"
         siteLocale="BR"
         twitterUsername={config.twitter}
@@ -187,7 +188,6 @@ export async function getStaticProps() {
       maxPopularHomepage: process.env.MAX_POPULAR_HOMEPAGE || 3,
       maxRecentHomepage: process.env.MAX_RECENT_HOMEPAGE || 3,
       daysToRecent: process.env.DAYS_TO_RECENT || 30
-    },
-    revalidate: 10
+    }
   };
 }

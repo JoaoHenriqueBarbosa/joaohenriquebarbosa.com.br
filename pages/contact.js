@@ -15,6 +15,7 @@ const Contact = ({ config }) => {
         description={config.description}
         image="/images/joaofull.png"
         pathname={config.siteUrl}
+        baseUrl={config.siteUrl}
         siteLanguage="pt-BR"
         siteLocale="BR"
         twitterUsername={config.twitter}

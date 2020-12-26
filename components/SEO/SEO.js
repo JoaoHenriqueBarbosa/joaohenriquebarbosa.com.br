@@ -3,6 +3,7 @@ import { Facebook } from './Facebook';
 import { Twitter } from './Twitter';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import path from "path";
 
 export const SEO = ({
   title,
@@ -11,6 +12,7 @@ export const SEO = ({
   pathname,
   article = false,
   image,
+  baseUrl,
   siteLanguage,
   siteLocale,
   twitterUsername,
@@ -68,7 +70,7 @@ export const SEO = ({
     dateModified: seo.dateModified,
     image: {
       '@type': 'ImageObject',
-      url: `${image}`,
+      url: `${path.join(baseUrl, image)}`,
     },
   }
 
@@ -109,7 +111,7 @@ export const SEO = ({
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${image}`,
+          url: `${path.join(baseUrl, image)}`,
         },
       },
       datePublished: seo.datePublished,
@@ -121,7 +123,7 @@ export const SEO = ({
       name: seo.title,
       image: {
         '@type': 'ImageObject',
-        url: image,
+        url: path.join(baseUrl, image),
       },
       mainEntityOfPage: pathname,
     }
@@ -175,11 +177,13 @@ export const SEO = ({
             title={seo.title}
             type={article ? 'article' : 'website'}
             url={pathname}
+            baseUrl={baseUrl}
             locale={siteLocale ? siteLocale : 'en_gb'}
           />
           <Twitter
             title={seo.title}
             image={image}
+            baseUrl={baseUrl}
             desc={seo.description}
             username={twitterUsername}
           />
@@ -194,6 +198,7 @@ SEO.propTypes = {
   siteTitle: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   pathname: PropTypes.string.isRequired,
+  baseUrl: PropTypes.string.isRequired,
   article: PropTypes.bool,
   image: PropTypes.string,
   siteLanguage: PropTypes.string.isRequired,

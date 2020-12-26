@@ -78,6 +78,7 @@ const Blog = ({ config, categories, posts, minToPopular, daysToRecent }) => {
         siteTitle={config.title}
         description={config.description}
         image="/images/joaofull.png"
+        baseUrl={config.siteUrl}
         pathname={config.siteUrl}
         siteLanguage="pt-BR"
         siteLocale="BR"

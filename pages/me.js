@@ -36,6 +36,7 @@ const Me = ({ config, podcastData, content, data }) => {
         description={content.slice(0, 150) + "..."}
         image="/images/joaofull.png"
         pathname={config.siteUrl}
+        baseUrl={config.siteUrl}
         siteLanguage="pt-BR"
         siteLocale="BR"
         twitterUsername={config.twitter}
