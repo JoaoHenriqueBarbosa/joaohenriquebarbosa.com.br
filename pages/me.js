@@ -34,7 +34,7 @@ const Me = ({ config, podcastData, content, data }) => {
         title={data.title}
         siteTitle={config.title}
         description={content.slice(0, 150) + "..."}
-        image="/images/joao200.png"
+        image="/images/joaohome.jpg"
         pathname={config.siteUrl}
         baseUrl={config.siteUrl}
         siteLanguage="pt-BR"
