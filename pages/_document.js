@@ -12,7 +12,14 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="shortcut icon" type="image/png" href={`${this.props.siteUrl}/images/rocket.png`} />
+          <link rel="apple-touch-icon" sizes="152x152" href="/meta/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png" />
+          <link rel="manifest" href="/meta/site.webmanifest" />
+          <link rel="mask-icon" href="/meta/safari-pinned-tab.svg" color="#5bbad5" />
+          <meta name="msapplication-TileColor" content="#2b5797" />
+          <meta name="theme-color" content="#ffffff" />
+          {/* <link rel="shortcut icon" type="image/png" href={`${this.props.siteUrl}/images/rocket.png`} /> */}
           {/* <meta name="description" content={this.props.description} />
           <meta name="image" content="/images/rocket.png" />
           <meta property="og:url" content="https://www.joaohenriquebarbosa.com.br" />
