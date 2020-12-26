@@ -1,9 +1,8 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Page from '../components/Page';
 import SEO from '../components/SEO';
 import path from "path";
 import fs from "fs";
-import { connectToDatabase } from '../utils/mongodb';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,7 +13,25 @@ import Newsletter from '../components/Newsletter';
 export default function Home({ config, posts, maxPopularHomepage, maxRecentHomepage, daysToRecent, openSourceProjects }) {
 
   const recent = useRef([...posts].slice(0, maxRecentHomepage));
-  const popular = useRef([...posts].sort((a, b) => b.views - a.views).slice(0, maxPopularHomepage));
+  const [popular, setPopular] = useState([]);
+
+  useEffect(() => {
+    fetch(`/api/page-popular`)
+      .then((resp) => resp.json())
+      .then((resp) => {
+        setPopular(
+          [...posts].map(post => {
+            const views = resp.find(v => v.slug === post.slug);
+
+            if (views) {
+              post.views = views.total;
+            }
+
+            return post;
+          }).sort((a, b) => b.views - a.views).slice(0, maxPopularHomepage)
+        );
+      });
+  }, []);
 
   return (
     <Page config={config}>
@@ -93,7 +110,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
           <h2>Mais populares<Link href="/blog"><a className="view-all">Ver todos</a></Link></h2>
           <div className="posts simple">
             {
-              popular.current.map(post => (
+              popular.map(post => (
                 <Link href={slash(post.slug)} key={"popular-" + post.slug}>
                   <a>
                     <div className="each">
@@ -148,27 +165,11 @@ export async function getStaticProps() {
   const fsPromises = fs.promises;
   const directoryPath = path.join(process.cwd(), '/content/posts');
   const files = await fsPromises.readdir(directoryPath);
-  const { db, client } = await connectToDatabase();
-
-  let views = [];
-
-  if (client.isConnected()) {
-    views = await db
-      .collection("pageviews")
-      .find({})
-      .toArray();
-  }
 
   const posts = await Promise.all(files.map(async (file) => {
     const content = await import(`../content/posts/${file}`);
     const postData = matter(content.default);
     const slug = file.substr(0, file.length - 3);
-
-    const v = views.find(v => v.slug === slug);
-
-    if (v) {
-      postData.data.views = v.total;
-    }
 
     return {
       slug,
