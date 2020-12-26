@@ -1,6 +1,6 @@
 import React from 'react';
-import { Facebook } from './facebook';
-import { Twitter } from './twitter';
+import { Facebook } from './Facebook';
+import { Twitter } from './Twitter';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
