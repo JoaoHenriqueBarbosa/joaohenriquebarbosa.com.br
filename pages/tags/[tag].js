@@ -7,8 +7,7 @@ import awaitForEach from "await-foreach";
 import matter from 'gray-matter';
 import { slash, toggleItem } from '../../utils/utils';
 import queryString from "query-string";
-import { differenceInDays, format, isSameMonth } from 'date-fns';
-import { useRouter } from 'next/router';
+import { differenceInDays, format } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -49,6 +48,7 @@ const Tags = ({ config, posts, tag, minToPopular, daysToRecent }) => {
         description={config.description}
         image="/images/joaofull.png"
         pathname={config.siteUrl}
+        baseUrl={config.siteUrl}
         siteLanguage="pt-BR"
         siteLocale="BR"
         twitterUsername={config.twitter}
