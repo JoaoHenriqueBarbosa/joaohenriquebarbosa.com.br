@@ -118,7 +118,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
           <div className="projects">
             {
               openSourceProjects.map(proj => (
-                <div className="project">
+                <div className="project" key={"open-source-" + proj}>
                   <div>
                     <a href={proj.link} target="_blank" rel="noreferrer">
                       <div className="icon">{proj.icon}</div>

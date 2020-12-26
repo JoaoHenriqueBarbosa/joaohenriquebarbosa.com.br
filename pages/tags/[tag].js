@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Page from '../components/Page';
-import SEO from '../components/SEO';
+import Page from '../../components/Page';
+import SEO from '../../components/SEO';
 import path from "path";
 import fs from "fs";
 import awaitForEach from "await-foreach";
 import matter from 'gray-matter';
-import { slash, toggleItem } from '../utils/utils';
+import { slash, toggleItem } from '../../utils/utils';
 import queryString from "query-string";
 import { differenceInDays, format, isSameMonth } from 'date-fns';
 import { useRouter } from 'next/router';
@@ -13,13 +13,8 @@ import { pt } from 'date-fns/locale';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Blog = ({ config, categories, posts, minToPopular, daysToRecent }) => {
+const Tags = ({ config, posts, tag, minToPopular, daysToRecent }) => {
 
-  const router = useRouter();
-
-  const [filterCategories, setFilterCategories] = useState([]);
-  const [filteredPosts, setfilteredPosts] = useState(posts);
-  const [searchText, setSearchText] = useState("");
   const [views, setViews] = useState([]);
 
   useEffect(() => {
@@ -34,30 +29,6 @@ const Blog = ({ config, categories, posts, minToPopular, daysToRecent }) => {
       .then((resp) => setViews(resp));
   }, []);
 
-  useEffect(() => {
-    if (searchText !== "") {
-      router.replace(`?search=${searchText}`, undefined, { shallow: true });
-    } else {
-      router.replace(`/blog`, undefined, { shallow: true });
-    }
-  }, [searchText]);
-
-  const searchChange = (ev) => {
-    setSearchText(ev.target.value);
-  }
-
-  const categoriesChange = (cat) => {
-    const cats = toggleItem(filterCategories, cat);
-    setFilterCategories(cats);
-    if (cats.length) {
-      setfilteredPosts(posts.filter(post => (
-        post.categories.some(c => cats.includes(c))
-      )));
-    } else {
-      setfilteredPosts(posts);
-    }
-  }
-
   const getPopularBadge = (post) => {
     const v = views.find(v => v.slug === post.slug);
 
@@ -66,7 +37,6 @@ const Blog = ({ config, categories, posts, minToPopular, daysToRecent }) => {
         return <div className="alert"><div className="popular"><div>Popular</div></div></div>;
       }
     }
-
   }
 
   return (
@@ -84,37 +54,13 @@ const Blog = ({ config, categories, posts, minToPopular, daysToRecent }) => {
         twitterUsername={config.twitter}
       />
       <div className="container">
-        <h1>Artigos</h1>
-        <div className="category-container">
-          {
-            categories.map(cat => (
-              <div
-                key={"cat-" + cat}
-                className={`category-filter ${filterCategories.includes(cat) ? "active" : ""}`}
-                onClick={() => categoriesChange(cat)}
-              >
-                {cat}
-              </div>
-            ))
-          }
-        </div>
-        <div className="search-container">
-          <input type="text" className="search" value={searchText} onChange={searchChange} placeholder="Escreva sua busca..." type="search" />
-          <div className="filter-count">{
-            filteredPosts.filter(post => (
-              post.content.includes(searchText) ||
-              post.title.includes(searchText) ||
-              post.tags.join(" ").includes(searchText)
-            )).length
-          }</div>
+        <h1>Posts com a tag: {tag}</h1>
+        <div className="tag-label">
+          <span className="tag-count">{posts.length}</span> post{posts.length > 1 ? "s" : ""} encontrados.
         </div>
         <section className="posts">
           {
-            filteredPosts.filter(post => (
-              post.content.includes(searchText) ||
-              post.title.includes(searchText) ||
-              post.tags.join(" ").includes(searchText)
-            )).map(post => (
+            posts.map(post => (
               <Link key={"post-" + post.title} href={slash(post.slug)}>
                 <a>
                   <div className="each">
@@ -147,11 +93,38 @@ const Blog = ({ config, categories, posts, minToPopular, daysToRecent }) => {
   )
 }
 
-export default Blog;
+export default Tags;
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
 
-  const siteData = await import(`../content/data/config.json`);
+  const fsPromises = fs.promises;
+  const directoryPath = path.join(process.cwd(), '/content/posts');
+  const files = await fsPromises.readdir(directoryPath);
+
+  let tags = [];
+
+  await awaitForEach(files, async (file) => {
+    const content = await import(`../../content/posts/${file}`);
+    const postData = matter(content.default);
+
+    await awaitForEach(postData.data.tags, async (cat) => {
+      tags = tags.filter(f => f !== cat).concat([cat]);
+    });
+  });
+
+  const paths = await Promise.all(tags.map(async tag => ({ params: { tag } })));
+
+  return {
+    paths,
+    fallback: false
+  }
+}
+
+export async function getStaticProps(context) {
+
+  const { tag } = context.params;
+
+  const siteData = await import(`../../content/data/config.json`);
 
   const fsPromises = fs.promises;
   const directoryPath = path.join(process.cwd(), '/content/posts');
@@ -160,7 +133,7 @@ export async function getStaticProps() {
   let categories = [];
 
   let posts = await Promise.all(files.map(async (file) => {
-    const content = await import(`../content/posts/${file}`);
+    const content = await import(`../../content/posts/${file}`);
     const postData = matter(content.default);
 
     await awaitForEach(postData.data.categories, async (cat) => {
@@ -177,11 +150,13 @@ export async function getStaticProps() {
 
   posts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
+  posts = posts.filter(post => post.tags.includes(tag));
+
   return {
     props: {
       config: siteData.default,
-      categories,
       posts,
+      tag,
       minToPopular: process.env.MIN_TO_POPULAR || 30,
       daysToRecent: process.env.DAYS_TO_RECENT || 30
     },

@@ -1,6 +1,6 @@
-import { Facebook } from './facebook';
-import { SEO } from './seo';
-import { Twitter } from './twitter';
+import { Facebook } from './Facebook';
+import { SEO } from './SEO';
+import { Twitter } from './Twitter';
 
 export { Facebook, Twitter }
 

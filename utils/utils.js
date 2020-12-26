@@ -6,9 +6,11 @@ import queryString from "query-string";
 
 const codeRenderer = ({ language, value }) => {
   return (
-    <Prism showLineNumbers={true} language={language} style={dracula}>
-      {value}
-    </Prism>
+    <div className="prism">
+      <Prism showLineNumbers={true} language={language} style={dracula}>
+        {value}
+      </Prism>
+    </div>
   );
 };
 
