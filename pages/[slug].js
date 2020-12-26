@@ -11,6 +11,7 @@ import { pt } from 'date-fns/locale';
 import { capitalize } from 'lodash';
 import Image from 'next/image';
 import SEO from '../components/SEO';
+import urljoin from 'url-join';
 
 const Post = ({ config, slug, content, data }) => {
 
@@ -38,7 +39,7 @@ const Post = ({ config, slug, content, data }) => {
         siteLanguage="pt-BR"
         siteLocale="BR"
         twitterUsername={config.twitter}
-        pathname={path.join(config.siteUrl, slug)}
+        pathname={urljoin(config.siteUrl, slug)}
         baseUrl={config.siteUrl}
         author={config.author}
         article={true}

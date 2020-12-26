@@ -12,7 +12,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="shortcut icon" type="image/png" href="/images/rocket.png" />
+          <link rel="shortcut icon" type="image/png" href={`${this.props.siteUrl}/images/rocket.png`} />
           {/* <meta name="description" content={this.props.description} />
           <meta name="image" content="/images/rocket.png" />
           <meta property="og:url" content="https://www.joaohenriquebarbosa.com.br" />

@@ -3,7 +3,7 @@ import { Facebook } from './Facebook';
 import { Twitter } from './Twitter';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import path from "path";
+import urljoin from 'url-join';
 
 export const SEO = ({
   title,
@@ -70,7 +70,7 @@ export const SEO = ({
     dateModified: seo.dateModified,
     image: {
       '@type': 'ImageObject',
-      url: `${path.join(baseUrl, image)}`,
+      url: `${urljoin(baseUrl, image)}`,
     },
   }
 
@@ -111,7 +111,7 @@ export const SEO = ({
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${path.join(baseUrl, image)}`,
+          url: `${urljoin(baseUrl, image)}`,
         },
       },
       datePublished: seo.datePublished,
@@ -123,7 +123,7 @@ export const SEO = ({
       name: seo.title,
       image: {
         '@type': 'ImageObject',
-        url: path.join(baseUrl, image),
+        url: urljoin(baseUrl, image),
       },
       mainEntityOfPage: pathname,
     }

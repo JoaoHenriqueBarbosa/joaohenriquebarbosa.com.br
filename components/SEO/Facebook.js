@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import path from "path";
+import urljoin from 'url-join';
 
 export const Facebook = ({
   url,
@@ -18,7 +18,7 @@ export const Facebook = ({
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
-    <meta property="og:image" content={path.join(baseUrl, image)} />
+    <meta property="og:image" content={urljoin(baseUrl, image)} />
     <meta property="og:image:alt" content={desc} />
   </Head>
 );
