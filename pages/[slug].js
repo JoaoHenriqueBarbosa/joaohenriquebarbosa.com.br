@@ -68,7 +68,7 @@ const Post = ({ config, slug, content, data }) => {
                 >
                   Compartilhar
                 </a> /
-                <a className="github-link" style={{ borderBottom: "none" }} href={`${config.repo}/blob/master/content/posts/${slug}.md`} target="_blank" rel="noopener noreferrer">
+                <a className="github-link" style={{ borderBottom: "none" }} href={`${config.repo}/blob/main/content/posts/${slug}.md`} target="_blank" rel="noopener noreferrer">
                   Edite ✏️
                 </a>
               </div>
