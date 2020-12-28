@@ -1,5 +1,5 @@
 ---
-date: '2020-12-26'
+date: '2020-12-27'
 title: 'A história do meu blog estatico com Next.js e Markdown'
 thumbnail: '/images/thumbnails/nextjs.png'
 categories:
