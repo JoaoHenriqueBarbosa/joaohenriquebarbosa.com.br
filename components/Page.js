@@ -14,6 +14,9 @@ const Page = ({ config, children }) => {
           <a href={config.gitHub} target="_blank" rel="noopener noreferrer">GitHub</a> /{" "}
           <a href={config.linkedIn} target="_blank" rel="noopener noreferrer">LinkedIn</a> /{" "}
           <a href={config.repo} target="_blank" rel="noopener noreferrer">Código-fonte</a>
+          <div className="credits">
+            Design and original idea created by <a target="_blank" rel="noopener noreferrer" href="https://www.taniarascia.com/">Tania Rascia</a>
+          </div>
         </div>
       </footer>
     </>

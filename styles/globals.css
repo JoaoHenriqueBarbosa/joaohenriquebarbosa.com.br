@@ -2288,6 +2288,7 @@ blockquote code {
 }
 
 .footer {
+	margin-top: 50px;
 	height: 55px;
 	color: rgba(0, 0, 0, .6)
 }
@@ -3847,4 +3848,10 @@ pre[class*='language-']::selection, pre[class*='language-']::selection, code[cla
 .tag-count {
 	color: #5183f5;
 	font-weight: 600;
+}
+
+.credits {
+	font-size: small;
+	color: rgb(109, 109, 109);
+	margin-top: 20px;
 }
