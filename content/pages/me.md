@@ -34,7 +34,7 @@ Uma lista nada exaustiva.
 - [Alura](https://www.alura.com.br/) – uma plataforma de ensino muito eficiente
 - [Hisptes.tech](https://hipsters.tech/) – um podcast que pode te revelar novos horizontes
 - [Curso em vídeo - Com Gustavo Guanabara](https://www.cursoemvideo.com/) – onde dei os meu primeiros passos
-
+<!-- 
 ## Linha do tempo
 
 - **1997** - Nasci em Faxinal - PR. Sou o mais velho de um casal de irmãos
@@ -47,7 +47,7 @@ Uma lista nada exaustiva.
 - **também 2011** - Conheci minha grande amiga Maria Luiza, ela era *heavy user* de [Tumblr](https://www.tumblr.com/), e na intenção de impressionar resolvi fazer um *microblog* no site e lá eu conheci o HTML, é claro que já tinha ouvido falar, mas nunca tinha procurado aprender a fundo. **Vlw Maria!**
 - **2015** - Comecei no primeiro ano de Tecnologia Análise e Desenvolvimento de Sistemas, descobri o Delphi 🤦‍♂️, aprendi a programar a moda antiga com os algoritmos no papel, com o famoso professor [Cláudio Dei Ricardi](https://www.escavador.com/sobre/633976/claudio-dei-ricardi) 
 - **2018** - Me graduei em TADS, abri minha MEI [Janx Technologies](https://www.janxtech.com.br/), aprendi muito sobre PHP MVC, APIs, e front-end. E dei minhas primeiras investidas no que se tornaria a minha grande paixão que é Javascript moderno
-- **2019** - Criei um blog para documentar minhas incursões no mundo da programação
+- **2019** - Criei um blog para documentar minhas incursões no mundo da programação -->
 
 ## Atualmente usando
 
