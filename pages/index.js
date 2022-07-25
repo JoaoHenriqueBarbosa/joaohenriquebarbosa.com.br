@@ -9,11 +9,13 @@ import Image from 'next/image';
 import { slash } from '../utils/utils';
 import { differenceInDays } from 'date-fns';
 import Newsletter from '../components/Newsletter';
+import { useTranslation } from 'react-i18next';
 
 export default function Home({ config, posts, maxPopularHomepage, maxRecentHomepage, daysToRecent, openSourceProjects }) {
 
   const recent = useRef([...posts].slice(0, maxRecentHomepage));
   const [popular, setPopular] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(`/api/page-popular`)
@@ -52,7 +54,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
             <div className="top">
               <img className="image" src="/images/joaohome.jpg" width="160px" height="160px" />
               <div className="text">
-                <h1>Olá, sou João Henrique</h1>
+                <h1>{t('Olá, sou João Henrique')}</h1>
                 <p>
                   Sou <span className="pink">João Henrique Barbosa</span>, um desenvolvedor de software <span className="green">full-stack</span> com foco em <span className="yellow">JavaScript moderno</span>.
                 Gosto de programar, aprender e escrever. Seja bem vinde ao meu site e <span className="blue">sinta-se a vontade</span>!

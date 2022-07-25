@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import 'react-h5-audio-player/lib/styles.css';
 import Head from 'next/head';
+import '../utils/i18n';
 
 function MyApp({ Component, pageProps }) {
   return (
