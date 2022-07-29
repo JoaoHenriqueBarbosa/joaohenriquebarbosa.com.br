@@ -124,7 +124,7 @@ export async function getStaticProps(context) {
 
   const { tag } = context.params;
 
-  const siteData = await import(`../../content/data/config.json`);
+  const siteData = await import(`../../content/data/config_ptBR.json`);
 
   const fsPromises = fs.promises;
   const directoryPath = path.join(process.cwd(), '/content/posts');

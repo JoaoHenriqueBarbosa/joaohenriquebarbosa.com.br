@@ -16,7 +16,7 @@ Eu resolvi criar este site para ser um lugar onde eu documento tudo o que eu apr
 
 ## Pela web
 
-- Email: [jhenrique@aktienow.com](mailto:jhenrique@aktienow.com)
+- Email: [joaohenriquebarbosa21@gmail.com](mailto:joaohenriquebarbosa21@gmail.com)
 - GitHub: [JoaoHenriqueBarbosa](https://github.com/JoaoHenriqueBarbosa)
 - Twitter: [codingjon](https://twitter.com/codingjon)
 - LinkedIn: [João Henrique Barbosa](https://www.linkedin.com/in/jo%C3%A3o-henrique-barbosa-ba1322124/)

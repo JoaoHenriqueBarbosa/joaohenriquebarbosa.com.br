@@ -27,7 +27,7 @@ const Contact = ({ config }) => {
           <Newsletter />
           <h2>Pela web</h2>
           <ul>
-            <li>Email: <a href="mailto:jhenrique@aktienow.com">jhenrique@aktienow.com</a></li>
+            <li>Email: <a href="mailto:joaohenriquebarbosa21@gmail.com">joaohenriquebarbosa21@gmail.com</a></li>
             <li>GitHub: <a href="https://github.com/JoaoHenriqueBarbosa">JoaoHenriqueBarbosa</a></li>
             <li>Twitter: <a href="https://twitter.com/codingjon">codingjon</a></li>
             <li>LinkedIn: <a href="https://www.linkedin.com/in/jo%C3%A3o-henrique-barbosa-ba1322124/">João Henrique Barbosa</a></li>
@@ -42,7 +42,7 @@ export default Contact;
 
 export async function getStaticProps() {
 
-  const siteData = await import(`../content/data/config.json`);
+  const siteData = await import(`../content/data/config_ptBR.json`);
 
   return {
     props: {

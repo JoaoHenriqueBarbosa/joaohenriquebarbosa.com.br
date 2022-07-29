@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { slash } from '../utils/utils';
 import { differenceInDays } from 'date-fns';
 import Newsletter from '../components/Newsletter';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 export default function Home({ config, posts, maxPopularHomepage, maxRecentHomepage, daysToRecent, openSourceProjects }) {
 
@@ -55,16 +55,18 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
               <img className="image" src="/images/joaohome.jpg" width="160px" height="160px" />
               <div className="text">
                 <h1>{t('Olá, sou João Henrique')}</h1>
-                <p>
-                  Sou <span className="pink">João Henrique Barbosa</span>, um desenvolvedor de software <span className="green">full-stack</span> com foco em <span className="yellow">JavaScript moderno</span>.
-                Gosto de programar, aprender e escrever. Seja bem vinde ao meu site e <span className="blue">sinta-se a vontade</span>!
-              </p>
+                <Trans t={t} i18nKey="welcome.txt">
+                  <p>
+                    Sou <span className="pink">João Henrique Barbosa</span>, um desenvolvedor de software <span className="green">full-stack</span> com foco em <span className="yellow">JavaScript moderno</span>.
+                    Gosto de programar, aprender e escrever. Seja bem vinde ao meu site e <span className="blue">sinta-se a vontade</span>!
+                  </p>
+                </Trans>
               </div>
             </div>
             <div className="bottom text">
               <Link href="/me">
                 <a>
-                  <button className="pink link">Sobre mim</button>
+                  <button className="pink link">{t("Sobre mim")}</button>
                 </a>
               </Link>
               <Link href="/contact">
@@ -86,7 +88,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
           </div>
         </section>
         <section className="section">
-          <h2>Últimos artigos<Link href="/blog"><a className="view-all">Ver todos</a></Link></h2>
+          <h2>{t("Últimos artigos")}<Link href="/blog"><a className="view-all">{t("Ver todos")}</a></Link></h2>
           <div className="posts simple">
             {
               recent.current.map(post => (
@@ -99,7 +101,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
                       <div className="each-list-item"><h2>{post.title}</h2></div>
                       {
                         differenceInDays(new Date(), new Date(post.date.split('-'))) < daysToRecent && (
-                          <div className="alert"><div className="new"><div>Novo!</div></div></div>
+                          <div className="alert"><div className="new"><div>{t("Novo")}!</div></div></div>
                         )
                       }
                     </div>
@@ -110,7 +112,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
           </div>
         </section>
         <section className="section">
-          <h2>Mais populares<Link href="/blog"><a className="view-all">Ver todos</a></Link></h2>
+          <h2>{t("Mais populares")}<Link href="/blog"><a className="view-all">{t("Ver todos")}</a></Link></h2>
           <div className="posts simple">
             {
               popular.map(post => (
@@ -123,7 +125,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
                       <div className="each-list-item"><h2>{post.title}</h2></div>
                       {
                         differenceInDays(new Date(), new Date(post.date.split('-'))) < daysToRecent && (
-                          <div className="alert"><div className="new"><div>Novo!</div></div></div>
+                          <div className="alert"><div className="new"><div>{t("Novo")}!</div></div></div>
                         )
                       }
                     </div>
@@ -134,7 +136,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
           </div>
         </section>
         <section className="section">
-          <h2>Projetos Open Source</h2>
+          <h2>{t("Projetos Open Source")}</h2>
           <div className="projects">
             {
               openSourceProjects.map(proj => (
@@ -146,7 +148,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
                     </a>
                     <div className="description">{proj.description}</div>
                   </div>
-                  <div className="flex"><a className="button" href={proj.repo} target="_blank" rel="noreferrer">Código-fonte</a></div>
+                  <div className="flex"><a className="button" href={proj.repo} target="_blank" rel="noreferrer">{t("Código-fonte")}</a></div>
                 </div>
               ))
             }
@@ -162,7 +164,7 @@ export default function Home({ config, posts, maxPopularHomepage, maxRecentHomep
 
 export async function getStaticProps() {
 
-  const siteData = await import(`../content/data/config.json`);
+  const siteData = await import(`../content/data/config_ptBR.json`);
   const openSourceProjects = await import(`../content/data/openSourceProjects.json`);
 
   const fsPromises = fs.promises;
@@ -172,7 +174,7 @@ export async function getStaticProps() {
   const posts = await Promise.all(files.map(async (file) => {
     const content = await import(`../content/posts/${file}`);
     const postData = matter(content.default);
-    const slug = file.substr(0, file.length - 3);
+    const slug = file.replace(/\.md$/, '');
 
     return {
       slug,

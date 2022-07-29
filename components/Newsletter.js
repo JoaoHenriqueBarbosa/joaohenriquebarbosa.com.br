@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { validateEmail } from "../utils/utils";
 
 const Newsletter = () => {
@@ -6,6 +7,7 @@ const Newsletter = () => {
   const [email, setEmail] = useState("");
   const [submited, setSubmited] = useState(false);
   const [success, setSuccess] = useState(false);
+  const { t } = useTranslation();
 
   const onSubmit = (ev) => {
     ev.preventDefault();
@@ -23,8 +25,8 @@ const Newsletter = () => {
   return (
     <div>
       <h2>Newsletter</h2>
-      <p>Eu escrevo sobre o que eu aprendo e compartilho. Inscreva-se na minha newsletter para ser notificado sobre novos conteúdos!</p>
-      {success && <p className="email-success">Obrigado!</p>}
+      <p>{t("Eu escrevo sobre o que eu aprendo e compartilho. Inscreva-se na minha newsletter para ser notificado sobre novos conteúdos!")}</p>
+      {success && <p className="email-success">{t("Obrigado")}!</p>}
       {!success && (
         <div className="newsletter-form">
           <input
@@ -35,7 +37,7 @@ const Newsletter = () => {
             required
             className={`email ${!validateEmail(email) && submited ? "error" : ""}`}
             placeholder="Email" />
-          <input onClick={onSubmit} type="submit" name="submit" id="submit-sidebar" value="Inscrever-se" />
+          <input onClick={onSubmit} type="submit" name="submit" id="submit-sidebar" value={t("Inscrever-se")} />
         </div>
       )}
     </div>

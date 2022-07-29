@@ -152,7 +152,7 @@ export default Blog;
 
 export async function getStaticProps() {
 
-  const siteData = await import(`../content/data/config.json`);
+  const siteData = await import(`../content/data/config_ptBR.json`);
 
   const fsPromises = fs.promises;
   const directoryPath = path.join(process.cwd(), '/content/posts');

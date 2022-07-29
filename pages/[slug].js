@@ -12,10 +12,16 @@ import { capitalize } from 'lodash';
 import Image from 'next/image';
 import SEO from '../components/SEO';
 import urljoin from 'url-join';
+import { useTranslation } from 'react-i18next';
+import config_en from '../content/data/config_en';
 
-const Post = ({ config, slug, content, data }) => {
+const Post = ({ config: defaultConfig, slug, content, data }) => {
 
   const [views, setViews] = useState("");
+  const { i18n } = useTranslation();
+  const config = i18n.language === 'en' ? config_en : defaultConfig;
+console.log(i18n.language);
+console.log(config)
 
   useEffect(() => {
     fetch("/api/page-views", {
@@ -36,8 +42,8 @@ const Post = ({ config, slug, content, data }) => {
         siteTitle={config.title}
         description={content.slice(0, 150) + "..."}
         image={data.thumbnail}
-        siteLanguage="pt-BR"
-        siteLocale="BR"
+        siteLanguage={i18n.language}
+        siteLocale={i18n.language === "en" ? "US" : "BR"}
         twitterUsername={config.twitter}
         pathname={urljoin(config.siteUrl, slug)}
         baseUrl={config.siteUrl}
@@ -97,7 +103,7 @@ export default Post;
 export async function getStaticProps(context) {
   const { slug } = context.params;
 
-  const siteData = await import(`../content/data/config.json`);
+  const siteData = await import(`../content/data/config_ptBR.json`);
   const content = await import(`../content/posts/${slug}.md`);
   const postData = matter(content.default);
   delete postData.orig;
@@ -124,17 +130,11 @@ export async function getStaticPaths() {
 
   const files = await fsPromises.readdir(directoryPath);
 
-  const paths = [];
-
-  //usar map
-
-  files.forEach((file) => {
-    if (file.endsWith(".md")) {
-      paths.push({
-        params: { slug: file.substr(0, file.length - 3) }
-      });
-    }
-  });
+  const paths = files
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => ({
+      params: { slug: file.replace(/\.md$/, '') }
+    }));
 
   return {
     paths,

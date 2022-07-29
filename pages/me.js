@@ -57,7 +57,7 @@ export default Me;
 
 export async function getStaticProps() {
 
-  const siteData = await import(`../content/data/config.json`);
+  const siteData = await import(`../content/data/config_ptBR.json`);
   const content = await import(`../content/pages/me.md`);
   const postData = matter(content.default);
   delete postData.orig;
