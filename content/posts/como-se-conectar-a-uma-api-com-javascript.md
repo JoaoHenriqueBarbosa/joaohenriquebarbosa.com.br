@@ -1,14 +1,21 @@
 ---
 date: "2019-05-06"
-title: 'Como se conectar a uma API com JavaScript'
+title: 'Trabalhando com APIs em JavaScript'
 thumbnail: '/images/thumbnails/js.png'
 categories:
   - JavaScript
   - APIs
 tags:
+  - javascript
   - api
   - app
-  - javascript
+  - fetch
+  - rest
+  - json
+  - crud
+  - html
+  - css
+  - arrow function
 ---
 
 Uma das maiores partes do trabalho com Javascript está em se conectar com APIs.
