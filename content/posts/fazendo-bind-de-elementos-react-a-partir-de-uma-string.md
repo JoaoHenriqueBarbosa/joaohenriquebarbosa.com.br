@@ -1,5 +1,5 @@
 ---
-date: "2022-08-08"
+date: "2022-08-18"
 title: "Fazendo bind de elementos React a partir de uma string"
 thumbnail: "/images/thumbnails/tsx.webp"
 categories:
