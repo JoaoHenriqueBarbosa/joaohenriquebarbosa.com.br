@@ -34,13 +34,13 @@ No nosso pseudocódigo, você poderia fazer algo assim:
 <div class="filename">pseudocódigo - é tipo javascript mas só roda na sua cabeça</div>
 
 ```javascript
-const str = 'I am a {0}';
+const string = 'I am a {0}';
 
-const element1 = <span>programmer</span>;
+const elemento1 = <span>programmer</span>;
 
-const element2 = <span>writer</span>;
+const elemento2 = <span>writer</span>;
 
-const novaString = str.replace('{0}', element1);
+const novaString = string.mudarPor('{0}', elemento1);
 
 escreva(novaString); // "I am a programmer"
 ```
@@ -54,7 +54,7 @@ Essa abordagem funciona bem se você tiver apenas uma tag, mas e se tiver múlti
 ```javascript
 const string = 'I am a {0} and a {1}';
 
-const palavras = string.split(' ');
+const palavras = string.corta(' ');
 
 const elementosParaVinculacao = ["programmer", "writer"];
 
