@@ -1,11 +1,27 @@
 ---
 date: "2022-08-03"
 title: "Um pouco sobre a biblioteca Solid.js"
-thumbnail: '/images/thumbnails/graphql.png'
+thumbnail: '/images/thumbnails/solid.png'
 categories:
-  - JavaScript
+  - Solidjs
 tags:
-  - api
+  - solid
+  - react
+  - front-end
+  - frameworks
+  - linguagem
+  - programação
+  - aplicações
+  - desktop
+  - electron
+  - back-end
+  - node.js
+  - dispositivos
+  - embarcados
+  - IoT
+  - interfaces
+  - gráficas
+  - funcional
 ---
 
 O JavaScript tem se tornado frequentemente uma linguagem de programação em alta,
@@ -24,16 +40,11 @@ O Solid é uma biblioteca baseada no React, para desenvolvimento de aplicações
 ele foi desenvolvido para facilitar o desenvolvimento de aplicações de desktop,
 já que o React é uma biblioteca voltada para o desenvolvimento de aplicações web.
 
-Atualmente o Solid suporta o Electron, o NW.js e o Proton Native, mas há planos
-para suportar outras plataformas.
-
 ## Componentes
 
 Ao invés de utilizar tags como `<div>` e `<span>`, o Solid utiliza componentes,
-como `<Button>`, `<Window>`, `<Text>`, `<VBox>` e `<HBox>`, esses componentes são
-componentes padrões para o Solid, mas podemos criar os nossos próprios
-componentes também, ao invés de usar o `document.createElement(tagName)`, nós
-usamos o `<tagName>` como foi visto na imagem acima.
+como `<Button>`, `<Window>`, `<Text>`, `<Box>` e `<Stack>`, Podemos criar os nossos próprios
+componentes também.
 
 Os componentes podem conter outros componentes, por exemplo:
 
@@ -41,10 +52,10 @@ Os componentes podem conter outros componentes, por exemplo:
 function App() {
   return (
     <Window>
-      <VBox>
+      <Box>
         <Text>Hello, world!</Text>
         <Button>Click me!</Button>
-      </VBox>
+      </Box>
     </Window>
   );
 }
@@ -52,7 +63,7 @@ function App() {
 render(<App />, document.getElementById("root"));
 ```
 
-A função `App` retorna um `<Window>` que contém um `<VBox>`, o `<VBox>` contém
+A função `App` retorna um `<Window>` que contém um `<Box>`, o `<Box>` contém
 um `<Text>` e um `<Button>`, o `<Text>` é renderizado como um elemento `<span>`
 e o `<Button>` é renderizado como um elemento `<button>`.
 
