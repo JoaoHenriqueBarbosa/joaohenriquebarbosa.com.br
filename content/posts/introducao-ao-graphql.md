@@ -1,21 +1,21 @@
 ---
 date: "2022-07-22"
-title: 'Aprenda a usar o GraphQL'
-thumbnail: '/images/thumbnails/graphql.png'
+title: "Aprenda a usar o GraphQL"
+thumbnail: "/images/thumbnails/graphql.png"
 categories:
-  - JavaScript
-  - APIs
+  - "JavaScript"
+  - "APIs"
 tags:
-  - graphql
-  - api
-  - rest
-  - client
-  - server
-  - database
-  - data
-  - scheme
-  - type
-  - query
+  - "graphql"
+  - "api"
+  - "rest"
+  - "client"
+  - "server"
+  - "database"
+  - "data"
+  - "scheme"
+  - "type"
+  - "query"
 ---
 
 GraphQL é um novo padrão de API que apresenta uma alternativa mais eficiente, poderosa e flexível ao REST. Ele foi desenvolvido pelo Facebook e é de código aberto. A maioria das aplicações tem a necessidade de buscar dados em um servidor onde esses dados são armazenados em um banco de dados. O GraphQL fornece uma interface para que esses dados se encaixem às necessidades de uma aplicação. O GraphQL é frequentemente confundido com uma tecnologia de banco de dados, mas é uma linguagem de consulta para APIs - não bancos de dados. GraphQL é indiferente ao banco de dados.

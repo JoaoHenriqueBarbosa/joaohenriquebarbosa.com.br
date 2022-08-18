@@ -1,21 +1,21 @@
 ---
 date: "2019-05-06"
-title: 'Trabalhando com APIs em JavaScript'
-thumbnail: '/images/thumbnails/js.png'
+title: "Trabalhando com APIs em JavaScript"
+thumbnail: "/images/thumbnails/js.png"
 categories:
-  - JavaScript
-  - APIs
+  - "JavaScript"
+  - "APIs"
 tags:
-  - javascript
-  - api
-  - app
-  - fetch
-  - rest
-  - json
-  - crud
-  - html
-  - css
-  - arrow function
+  - "javascript"
+  - "api"
+  - "app"
+  - "fetch"
+  - "rest"
+  - "json"
+  - "crud"
+  - "html"
+  - "css"
+  - "arrow function"
 ---
 
 Uma das maiores partes do trabalho com Javascript está em se conectar com APIs.

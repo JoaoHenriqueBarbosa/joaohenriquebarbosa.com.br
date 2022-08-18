@@ -1,27 +1,27 @@
 ---
 date: "2022-08-03"
 title: "Um pouco sobre a biblioteca Solid.js"
-thumbnail: '/images/thumbnails/solid.png'
+thumbnail: "/images/thumbnails/solid.png"
 categories:
-  - Solidjs
+  - "Solidjs"
 tags:
-  - solid
-  - react
-  - front-end
-  - frameworks
-  - linguagem
-  - programação
-  - aplicações
-  - desktop
-  - electron
-  - back-end
-  - node.js
-  - dispositivos
-  - embarcados
-  - IoT
-  - interfaces
-  - gráficas
-  - funcional
+  - "solid"
+  - "react"
+  - "front-end"
+  - "frameworks"
+  - "linguagem"
+  - "programação"
+  - "aplicações"
+  - "desktop"
+  - "electron"
+  - "back-end"
+  - "node.js"
+  - "dispositivos"
+  - "embarcados"
+  - "IoT"
+  - "interfaces"
+  - "gráficas"
+  - "funcional"
 ---
 
 O JavaScript tem se tornado frequentemente uma linguagem de programação em alta,

@@ -115,7 +115,7 @@ export async function getStaticPaths() {
   const paths = await Promise.all(tags.map(async tag => ({ params: { tag } })));
 
   return {
-    paths,
+    paths = paths.filter((path) => path !== undefined && path !== null && path !== ""),
     fallback: false
   }
 }

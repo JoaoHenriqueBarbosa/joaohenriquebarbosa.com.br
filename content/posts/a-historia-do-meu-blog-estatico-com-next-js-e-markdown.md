@@ -1,22 +1,22 @@
 ---
-date: '2020-12-27'
-title: 'A importância da comunidade na minha carreira de programador'
-thumbnail: '/images/thumbnails/nextjs.png'
+date: "2020-12-27"
+title: "A importância da comunidade na minha carreira de programador"
+thumbnail: "/images/thumbnails/nextjs.png"
 categories:
-  - JavaScript
-  - Next.js
-  - Markdown
+  - "JavaScript"
+  - "Next.js"
+  - "Markdown"
 tags:
-  - api
-  - blog
-  - next.js
-  - markdown
-  - javascript
-  - 2019
-  - gatsby
-  - SSG
-  - SSR
-  - FCP
+  - "api"
+  - "blog"
+  - "next.js"
+  - "markdown"
+  - "javascript"
+  - "2019"
+  - "gatsby"
+  - "SSG"
+  - "SSR"
+  - "FCP"
 ---
 
 Quem perambula bastante pela blogosfera de programadores, ou até mesmo quem só tenha procurado algum tutorial na internet sobre programação, pode ter dado de topa com o [blog da Tania Rascia](https://www.taniarascia.com/), e não é para menos, ela ganhou o prêmio de [Personal Developer Blog of the Year](https://hackernoon.com/personal-developer-blog-of-the-year-hacker-noon-noonies-awards-2019-hz2tu32ql) em terceiro lugar no ano de 2019.

@@ -1,27 +1,27 @@
 ---
 date: "2022-08-08"
 title: "Fazendo bind de elementos React a partir de uma string"
-thumbnail: '/images/thumbnails/solid.png'
+thumbnail: "/images/thumbnails/solid.png"
 categories:
-  - Solidjs
+  - "Solidjs"
 tags:
-  - solid
-  - react
-  - front-end
-  - frameworks
-  - linguagem
-  - programação
-  - aplicações
-  - desktop
-  - electron
-  - back-end
-  - node.js
-  - dispositivos
-  - embarcados
-  - IoT
-  - interfaces
-  - gráficas
-  - funcional
+  - "solid"
+  - "react"
+  - "front-end"
+  - "frameworks"
+  - "linguagem"
+  - "programação"
+  - "aplicações"
+  - "desktop"
+  - "electron"
+  - "back-end"
+  - "node.js"
+  - "dispositivos"
+  - "embarcados"
+  - "IoT"
+  - "interfaces"
+  - "gráficas"
+  - "funcional"
 ---
 
 **Typescript** e **React** são duas das minhas tecnologias favoritas. Prefiro o Typescript porque ele é tipado estaticamente, o que significa que posso capturar erros logo no início do processo de desenvolvimento. Enquanto o React é ótimo para criar componentes reutilizáveis que podem ser usados em diferentes projetos. Além disso, uso bibliotecas, como **Lodash** e **Redux**, para me ajudar a resolver problemas de forma mais eficiente. Embora eu goste de trabalhar em problemas desafiadores, às vezes vou longe demais e gasto muito tempo em um único problema. Isso pode levar à frustração e até à exaustão. Como resultado, eu preciso fazer intervalos e voltar ao problema com novos olhos. Dessa forma, posso encontrar soluções mais criativas e evitar ficar preso nos detalhes.
