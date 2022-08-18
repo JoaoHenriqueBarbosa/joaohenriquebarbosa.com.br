@@ -1,27 +1,20 @@
 ---
 date: "2022-08-08"
 title: "Fazendo bind de elementos React a partir de uma string"
-thumbnail: "/images/thumbnails/solid.png"
+thumbnail: "/images/thumbnails/tsx.webp"
 categories:
-  - "Solidjs"
+  - "Javascript"
 tags:
-  - "solid"
+  - "javascript"
   - "react"
-  - "front-end"
-  - "frameworks"
-  - "linguagem"
-  - "programação"
-  - "aplicações"
-  - "desktop"
-  - "electron"
-  - "back-end"
-  - "node.js"
-  - "dispositivos"
-  - "embarcados"
-  - "IoT"
-  - "interfaces"
-  - "gráficas"
-  - "funcional"
+  - "typescript"
+  - "lodash"
+  - "redux"
+  - "programming"
+  - "development"
+  - "binding"
+  - "templating"
+  - "strings"
 ---
 
 **Typescript** e **React** são duas das minhas tecnologias favoritas. Prefiro o Typescript porque ele é tipado estaticamente, o que significa que posso capturar erros logo no início do processo de desenvolvimento. Enquanto o React é ótimo para criar componentes reutilizáveis que podem ser usados em diferentes projetos. Além disso, uso bibliotecas, como **Lodash** e **Redux**, para me ajudar a resolver problemas de forma mais eficiente. Embora eu goste de trabalhar em problemas desafiadores, às vezes vou longe demais e gasto muito tempo em um único problema. Isso pode levar à frustração e até à exaustão. Como resultado, eu preciso fazer intervalos e voltar ao problema com novos olhos. Dessa forma, posso encontrar soluções mais criativas e evitar ficar preso nos detalhes.
@@ -38,6 +31,8 @@ Imaginemos que você tem uma string com tags de vinculação (por exemplo: {3}) 
 
 No nosso pseudocódigo, você poderia fazer algo assim:
 
+<div class="filename">pseudocódigo - é tipo javascript mas só roda na sua cabeça</div>
+
 ```javascript
 const str = 'I am a {0}';
 
@@ -53,6 +48,8 @@ escreva(novaString); // "I am a programmer"
 ### Lidando com expressões regulares e índices de arrays
 
 Essa abordagem funciona bem se você tiver apenas uma tag, mas e se tiver múltiplas tags? Você poderia usar uma expressão regular para substituir todas as tags pelos elementos correspondentes e usar o conteúdo da tag como um índice para o array de elementos para vinculação:
+
+<div class="filename">pseudocódigo - é tipo javascript mas só roda na sua cabeça</div>
 
 ```javascript
 const string = 'I am a {0} and a {1}';
@@ -86,6 +83,8 @@ O TypeScript é um superset tipado do JavaScript que é compilado para o JavaScr
 
 Primeiro, vamos criar um componente de função chamado **Words** que recebe a string contendo as tags de vinculação na posição certa da frase e um array de elementos para vincular como props. O *type* para as props do componente será:
 
+<div class="filename">Words.tsx</div>
+
 ```typescript
 type WordsProps = {
   txt: string;
@@ -94,6 +93,8 @@ type WordsProps = {
 ```
 
 E agora o próprio componente:
+
+<div class="filename">Words.tsx</div>
 
 ```typescript
 const Words = ({ txt, bindList }: WordsProps) => {
@@ -105,7 +106,9 @@ Em seguida, dividimos a string por espaço (" ") e usamos o método map() para t
 
 A tag será identificada pela posição da palavra na frase original. Por exemplo, se tivermos a string "I am a {0}", a primeira palavra seria 0 e seria substituída pelo primeiro elemento do nosso array. Se não houver mais elementos para vincular, continuaremos e retornaremos a palavra não modificada.
 
-```JSX
+<div class="filename">Words.tsx</div>
+
+```javascript
 const Words = ({ txt, bindList }: WordsProps) => {
   const words = txt.split(' ');
   const wordsList = words.map((word, index) => {
