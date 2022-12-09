@@ -111,7 +111,7 @@ Mas e no caso de um endpoint que precisa de parâmetros? Sem problemas, digamos 
 ```javascript
 import fetch from 'node-fetch';
 
-export const fetchTodos = async (key, userId) => {
+export const fetchTodos = async (userId) => {
   fetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`)
     .then(res => res.json());
 ```
@@ -128,7 +128,7 @@ const userId = 1; // Vamos manter como uma constante apenas para fins didáticos
 const App = () => {
   const { data, isLoading, error } = useQuery(
     ['todos', userId],
-    fetchTodos
+    () => fetchTodos(userId)
   );
 
   if (isLoading) return <p>Carregando...</p>;
